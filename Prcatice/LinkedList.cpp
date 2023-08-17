@@ -46,6 +46,18 @@ public:
         }
         size++;
     }
+    void inserAt(int idx, int val){
+        if(idx<0 || idx>size){
+            cout<<"Invalid";
+            return;
+        }
+        else if(idx ==0 ) insertAtBeginning(val);
+        else if(idx == size) insertAtEnd(val);
+        else{
+            Node* temp = new Node(val);
+            
+        }
+    }
     void display()
     {
         Node *temp = head;
