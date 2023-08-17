@@ -34,6 +34,18 @@ public:
         }
         size++;
     }
+    void insertAtBeginning(int val)
+    {
+        Node *temp = new Node(val);
+        if (size == 0)
+            head = tail = temp;
+        else
+        {
+            temp->next = head;
+            head = temp;
+        }
+        size++;
+    }
     void display()
     {
         Node *temp = head;
@@ -53,6 +65,8 @@ int main()
     ll.insertAtEnd(30);
     ll.insertAtEnd(40);
     ll.insertAtEnd(50);
+    ll.display();
+    ll.insertAtBeginning(0);
     ll.display();
     return 0;
 }
