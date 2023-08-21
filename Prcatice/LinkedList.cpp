@@ -54,8 +54,14 @@ public:
         else if(idx ==0 ) insertAtBeginning(val);
         else if(idx == size) insertAtEnd(val);
         else{
-            Node* temp = new Node(val);
-            
+            Node* t = new Node(val);
+            Node *temp = head;
+            for(int i = 1; i<=idx-1; i++){
+                temp = temp->next;
+            }
+            t->next = temp->next;
+            temp->next = t;
+            size++;
         }
     }
     void display()
@@ -75,10 +81,10 @@ int main()
     ll.insertAtEnd(10);
     ll.insertAtEnd(20);
     ll.insertAtEnd(30);
-    ll.insertAtEnd(40);
-    ll.insertAtEnd(50);
+    //ll.insertAtEnd(40);
     ll.display();
-    ll.insertAtBeginning(0);
+    ll.insertAtEnd(50);
+    ll.inserAt(3,40);
     ll.display();
     return 0;
 }
