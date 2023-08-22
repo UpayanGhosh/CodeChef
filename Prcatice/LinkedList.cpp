@@ -123,7 +123,27 @@ public:
             size--;
         }
     }
-
+    void deleteAtIndex(int idx)
+    {
+        if (idx < 0 || idx > size)
+        {
+            cout << "Invalid List is empty!!";
+        }
+        else if (idx == 0)
+            deleteAtHead();
+        else if (idx == size - 1)
+            deleteAtTail();
+        else
+        {
+            Node *temp = head;
+            for (int i = 1; i <= idx - 1; i++)
+            {
+                temp = temp->next;
+            }
+            temp->next = temp->next->next;
+            size--;
+        }
+    }
     void display()
     {
         Node *temp = head;
@@ -141,13 +161,19 @@ int main()
     ll.insertAtEnd(10);
     ll.insertAtEnd(20);
     ll.insertAtEnd(30);
+    ll.insertAtEnd(40);
     ll.insertAtEnd(50);
-    ll.inserAt(3, 40);
+    ll.insertAtEnd(60);
+    ll.insertAtEnd(70);
+    ll.insertAtEnd(80);
+    // ll.inserAt(3, 40);
     ll.display();
     cout << ll.getElementAtIdx(3) << endl;
     ll.deleteAtHead();
     ll.display();
     ll.deleteAtTail();
+    ll.display();
+    ll.deleteAtIndex(5);
     ll.display();
     return 0;
 }
