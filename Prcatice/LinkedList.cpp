@@ -123,21 +123,7 @@ public:
             size--;
         }
     }
-    /*void removeAtIdx(int idx)
-    {
-        if (size <= 0)
-            cout << "LinkedList is empty";
-        else if (size > 0 && idx < size - 1)
-        {
-            Node *temp = head;
-            Node *t = new Node(NULL);
-            for (int i = 1; i <= idx - 1; i++)
-            {
-                temp = temp->next;
-            }
-            size--;
-        }
-    }*/
+
     void display()
     {
         Node *temp = head;
@@ -155,13 +141,10 @@ int main()
     ll.insertAtEnd(10);
     ll.insertAtEnd(20);
     ll.insertAtEnd(30);
-    // ll.insertAtEnd(40);
-    // ll.display();
     ll.insertAtEnd(50);
     ll.inserAt(3, 40);
     ll.display();
     cout << ll.getElementAtIdx(3) << endl;
-    // ll.removeAtIdx(2);
     ll.deleteAtHead();
     ll.display();
     ll.deleteAtTail();
