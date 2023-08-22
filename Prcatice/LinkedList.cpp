@@ -91,6 +91,34 @@ public:
             return temp->val;
         }
     }
+    int deleteAtHead()
+    {
+        if (size == 0)
+        {
+            cout << "Invalid List is empty!!";
+            return -1;
+        }
+        else
+        {
+            head = head->next;
+            size--;
+        }
+    }
+    void removeAtIdx(int idx)
+    {
+        if (size <= 0)
+            cout << "LinkedList is empty";
+        else if (size > 0 && idx < size - 1)
+        {
+            Node *temp = head;
+            Node *t = new Node(NULL);
+            for (int i = 1; i <= idx - 1; i++)
+            {
+                temp = temp->next;
+            }
+            size--;
+        }
+    }
     void display()
     {
         Node *temp = head;
@@ -109,10 +137,13 @@ int main()
     ll.insertAtEnd(20);
     ll.insertAtEnd(30);
     // ll.insertAtEnd(40);
-    ll.display();
+    // ll.display();
     ll.insertAtEnd(50);
     ll.inserAt(3, 40);
     ll.display();
-    cout << ll.getElementAtIdx(3);
+    cout << ll.getElementAtIdx(3) << endl;
+    // ll.removeAtIdx(2);
+    ll.deleteAtHead();
+    ll.display();
     return 0;
 }
