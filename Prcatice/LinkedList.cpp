@@ -104,7 +104,26 @@ public:
             size--;
         }
     }
-    void removeAtIdx(int idx)
+    int deleteAtTail()
+    {
+        if (size == 0)
+        {
+            cout << "Invalid List is empty!!";
+            return -1;
+        }
+        else
+        {
+            Node *temp = head;
+            while (temp->next != tail)
+            {
+                temp = temp->next;
+            }
+            temp->next = NULL;
+            tail = temp;
+            size--;
+        }
+    }
+    /*void removeAtIdx(int idx)
     {
         if (size <= 0)
             cout << "LinkedList is empty";
@@ -118,7 +137,7 @@ public:
             }
             size--;
         }
-    }
+    }*/
     void display()
     {
         Node *temp = head;
@@ -144,6 +163,8 @@ int main()
     cout << ll.getElementAtIdx(3) << endl;
     // ll.removeAtIdx(2);
     ll.deleteAtHead();
+    ll.display();
+    ll.deleteAtTail();
     ll.display();
     return 0;
 }
