@@ -125,9 +125,11 @@ public:
     }
     void deleteAtIndex(int idx)
     {
-        if (idx < 0 || idx > size)
+        if (size == 0)
+            cout << "List is empty";
+        else if (idx < 0 || idx > size)
         {
-            cout << "Invalid List is empty!!";
+            cout << "Invalid";
         }
         else if (idx == 0)
             deleteAtHead();
@@ -173,7 +175,7 @@ int main()
     ll.display();
     ll.deleteAtTail();
     ll.display();
-    ll.deleteAtIndex(5);
+    ll.deleteAtIndex(3);
     ll.display();
     return 0;
 }
