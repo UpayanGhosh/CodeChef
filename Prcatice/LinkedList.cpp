@@ -46,22 +46,49 @@ public:
         }
         size++;
     }
-    void inserAt(int idx, int val){
-        if(idx<0 || idx>size){
-            cout<<"Invalid";
+    void inserAt(int idx, int val)
+    {
+        if (idx < 0 || idx > size)
+        {
+            cout << "Invalid";
             return;
         }
-        else if(idx ==0 ) insertAtBeginning(val);
-        else if(idx == size) insertAtEnd(val);
-        else{
-            Node* t = new Node(val);
+        else if (idx == 0)
+            insertAtBeginning(val);
+        else if (idx == size)
+            insertAtEnd(val);
+        else
+        {
+            Node *t = new Node(val);
             Node *temp = head;
-            for(int i = 1; i<=idx-1; i++){
+            for (int i = 1; i <= idx - 1; i++)
+            {
                 temp = temp->next;
             }
             t->next = temp->next;
             temp->next = t;
             size++;
+        }
+    }
+    int getElementAtIdx(int idx)
+    {
+        if (idx < 0 || idx > size)
+        {
+            cout << "Invalid Index";
+            return -1;
+        }
+        else if (idx == 0)
+            return head->val;
+        else if (idx == size - 1)
+            return tail->val;
+        else
+        {
+            Node *temp = head;
+            for (int i = 1; i <= idx; i++)
+            {
+                temp = temp->next;
+            }
+            return temp->val;
         }
     }
     void display()
@@ -81,10 +108,11 @@ int main()
     ll.insertAtEnd(10);
     ll.insertAtEnd(20);
     ll.insertAtEnd(30);
-    //ll.insertAtEnd(40);
+    // ll.insertAtEnd(40);
     ll.display();
     ll.insertAtEnd(50);
-    ll.inserAt(3,40);
+    ll.inserAt(3, 40);
     ll.display();
+    cout << ll.getElementAtIdx(3);
     return 0;
 }
